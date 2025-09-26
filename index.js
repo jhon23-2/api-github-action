@@ -20,6 +20,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
+// welcome route
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the Student and Course Management API');
+});
+
 
 // CREATE new student
 app.post('/student', async (req, res) => {
@@ -35,7 +41,7 @@ app.post('/student', async (req, res) => {
 app.get('/student', async (req, res) => {
   try {
     const students = await Student.findAll();
-    res.json({ message: "Students retrieved successfully" });
+    res.json({ message: "Students retrieved successfully", students });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
