@@ -35,7 +35,7 @@ app.post('/student', async (req, res) => {
 app.get('/student', async (req, res) => {
   try {
     const students = await Student.findAll();
-    res.json(students);
+    res.json({ students, message: "Students retrieved successfully" }); // change my code 
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
