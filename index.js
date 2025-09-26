@@ -27,6 +27,12 @@ app.get('/', (req, res) => {
 });
 
 
+// enpoints for student and course
+
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK', message: 'Server is healthy' });
+});
+
 // CREATE new student
 app.post('/student', async (req, res) => {
   try {
