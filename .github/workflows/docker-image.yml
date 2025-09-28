@@ -26,7 +26,6 @@ jobs:
         run: |
           IMAGE=jhona1dev/api_node_actions
           TAG=latest
-          docker build -t $IMAGE:$TAG -t $IMAGE:${{ github.sha }} .
+          docker build -t $IMAGE:$TAG .
           docker push $IMAGE:$TAG
-          docker push $IMAGE:${{ github.sha }}
-          echo "Docker image pushed: $IMAGE:$TAG and $IMAGE:${{ github.sha }}"
+          echo "Docker image pushed: $IMAGE:$TAG"
