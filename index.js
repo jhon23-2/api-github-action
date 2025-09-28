@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // welcome route
 
-app.get('/hello', (req, res) => {
+app.post('/hello', (req, res) => {
   res.json({ message: 'Welcome to the Student and Course Management API', date: `${new Date().toLocaleString()}` });
 });
 
