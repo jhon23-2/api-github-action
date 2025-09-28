@@ -8,8 +8,6 @@ const morgan = require('morgan');
 const sequelize = require('./config/database');
 
 
-
-
 const port = process.env.SERVER_PORT || 5000;
 
 // middleware
@@ -23,15 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 // welcome route
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the Student and Course Management API');
+  res.json({ message: 'Welcome to the Student and Course Management API', date: `${new Date().toLocaleString()}` });
 });
 
-
-// enpoints for student and course
-
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'OK', message: 'Server is healthy' });
-});
 
 // CREATE new student
 app.post('/student', async (req, res) => {
