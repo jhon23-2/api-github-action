@@ -78,7 +78,7 @@ const startServer = async () => {
 
     const studentCount = await Student.count();
     if (studentCount === 0) {
-      await createSampleData();
+      //await createSampleData();
     }
 
     // Start server
@@ -90,6 +90,8 @@ const startServer = async () => {
     process.exit(1);
   }
 };
+
+// TODO... method createSampleData does not work 
 
 const createSampleData = async () => {
   try {
@@ -113,6 +115,7 @@ const createSampleData = async () => {
         credits: 3
       }
     ]);
+
 
     await Student.create([
       {
@@ -144,4 +147,8 @@ const createSampleData = async () => {
 };
 
 
-startServer();
+module.exports = app; // Export the app for testing
+
+if (require.main === module) {
+  startServer();
+}

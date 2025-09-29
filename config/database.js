@@ -6,8 +6,8 @@ const sequelize = new Sequelize(
   process.env.MYSQL_USER,
   process.env.MYSQL_PASSWORD,
   {
-    host: "mysql-db", // -> process.env.DB_HOST for localhost
-    port: "3306", //-> process.env.DB_PORT for localhost
+    host: process.env.DB_HOST, // -> contianer name for docker ("mysql-db")
+    port: process.env.DB_PORT, //-> port for mysql container docker ("3306")
     dialect: 'mysql',
     logging: false,
     pool: {
