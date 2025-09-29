@@ -147,4 +147,8 @@ const createSampleData = async () => {
 };
 
 
-startServer();
+module.exports = app; // Export the app for testing
+
+if (require.main === module) {
+  startServer();
+}
